@@ -1,0 +1,17 @@
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\bin\Debug\net6.0\TP4 Dev.exe
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\bin\Debug\net6.0\TP4 Dev.deps.json
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\bin\Debug\net6.0\TP4 Dev.runtimeconfig.json
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\bin\Debug\net6.0\TP4 Dev.dll
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\bin\Debug\net6.0\TP4 Dev.pdb
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\obj\Debug\net6.0\TP4 Dev.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\obj\Debug\net6.0\TP4 Dev.AssemblyInfoInputs.cache
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\obj\Debug\net6.0\TP4 Dev.AssemblyInfo.cs
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\obj\Debug\net6.0\TP4 Dev.csproj.CoreCompileInputs.cache
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\obj\Debug\net6.0\TP4 Dev.dll
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\obj\Debug\net6.0\refint\TP4 Dev.dll
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\obj\Debug\net6.0\TP4 Dev.pdb
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\obj\Debug\net6.0\TP4 Dev.genruntimeconfig.cache
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\obj\Debug\net6.0\ref\TP4 Dev.dll
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\obj\Debug\net6.0\TP4 Dev.csproj.AssemblyReference.cache
+C:\Users\niko2\source\repos\TP4 Dev\TP4 Dev\obj\Debug\net6.0\TP4 Dev.csproj.CopyComplete

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "dpESYRspK7/JTUdXKf6SOttRZPCO/FZMgZgBeAzAL6Vam5QYCm1c0VfcUHlmVtIPfDHA/0NFV1GonHVMuk/Gdw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\niko2\\source\\repos\\TP4 Dev\\TP4 Dev\\TP4 Dev.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\niko2\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
