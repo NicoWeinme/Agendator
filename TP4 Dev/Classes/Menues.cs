@@ -7,8 +7,32 @@ using System.Threading.Tasks;
 
 namespace TP4_Dev.Classes
 {
+    
     public class Menues
     {
+        public string[] Menu()
+        {
+            string[] menu = new string[16];
+            menu[0] = "╔═════════════════════◄►════════════════════╗";
+            menu[1] = "║                 AGENDATOR                 ║";
+            menu[2] = "╠═══════════════════════════════════════════╣";
+            menu[3] = "║                                           ║";
+            menu[4] = "║            1.- Agregar Alumno             ║";
+            menu[5] = "║            2.- Eliminar Alumno            ║";
+            menu[6] = "║            3.- Modificar Alumno           ║";
+            menu[7] = "║            4.- Consultar Alumno           ║";
+            menu[8] = "║            5.- Listar Alumnos             ║";
+            menu[9] = "║            6.- Salir                      ║";
+            menu[10] = "║                                           ║";
+            menu[11] = "╠═══════════════════════════════════════════╣";
+            menu[12] = "║                       ┌───┐               ║";
+            menu[13] = "║           Elección:   ┤   ├               ║";
+            menu[14] = "║                       └───┘               ║";
+            menu[15] = "╚═════════════════════◄►════════════════════╝";
+
+            return menu;
+        }
+
         public void ShowMainMenu()
         {
             /*
@@ -306,19 +330,13 @@ namespace TP4_Dev.Classes
             Console.ReadKey();
             
         }
-        public int AddDNIMenu()
+        public void AddDNIMenu()
         {
-            Validator validator = new Validator();
-            string DNI = "0";
             /*
             
             Se genera el menú de información de alumno
             
             */
-
-            //VARIABLES PARA MANIPULAR CURSOR
-            int cursorTop = 0;
-            int cursorLeft = 0;
 
             //ALMACENAMOS EL MENÚ EN UN ARREGLO
             string[] menu = new string[16];
@@ -366,51 +384,21 @@ namespace TP4_Dev.Classes
                     }
                 }
             }
-
             for (int i = 0; i < 16; i++)
             {
                 Console.SetCursorPosition(((Console.BufferWidth - menu[i].Length) / 2), (Console.BufferHeight / 4) + i);
                 Console.WriteLine(menu[i]);
             }
 
-            for (int t = 0; t < Console.BufferHeight; t++)
-            {
-
-                if (t == 13)
-                {
-                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-                    cursorTop = (Console.BufferHeight / 4) + t;
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    DNI = Console.ReadLine();
-                    //VALIDAMOS EL NUMERO, PASANDO COMO PARAMETROS EL INGRESO Y LA LONGITUD MÁXIMA Y MÍNIMA
-                    if (validator.ValidateInteger(DNI, 8, 8))
-                    {
-                        return int.Parse(DNI);
-                    }
-                    else { Console.WriteLine("Error de ingreso"); }
-                }
-                
-            }
-            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-            Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            validator = null;
-            Console.ReadKey();
-            return 0;
         }
-        public string AddNameMenu()
+        public void AddNameMenu()
         {
-            Validator validator = new Validator();
-            string Name = "0";
+            
             /*
             
-            Se genera el menú de información de alumno
+            Se genera el menú de ingreso de nomre
             
             */
-
-            //VARIABLES PARA MANIPULAR CURSOR
-            int cursorTop = 0;
-            int cursorLeft = 0;
 
             //ALMACENAMOS EL MENÚ EN UN ARREGLO
             string[] menu = new string[16];
@@ -465,44 +453,14 @@ namespace TP4_Dev.Classes
                 Console.WriteLine(menu[i]);
             }
 
-            for (int t = 0; t < Console.BufferHeight; t++)
-            {
-
-                if (t == 13)
-                {
-                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-                    cursorTop = (Console.BufferHeight / 4) + t;
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    Name = Console.ReadLine();
-                    //VALIDAMOS EL STRING, PASANDO COMO PARAMETROS EL INGRESO Y LA LONGITUD MÁXIMA Y MÍNIMA
-                    if (validator.ValidateString(Name, 2, 30))
-                    {
-                        return Name;
-                    }
-                    else { Console.WriteLine("Error de ingreso"); }
-                }
-
-            }
-            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-            Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            validator = null;
-            Console.ReadKey();
-            return "0";
         }
-        public string AddLastNameMenu()
+        public void AddLastNameMenu()
         {
-            Validator validator = new Validator();
-            string lastName = "0";
             /*
             
-            Se genera el menú de información de alumno
+            Se genera el menú de ingreso del apellido
             
             */
-
-            //VARIABLES PARA MANIPULAR CURSOR
-            int cursorTop = 0;
-            int cursorLeft = 0;
 
             //ALMACENAMOS EL MENÚ EN UN ARREGLO
             string[] menu = new string[16];
@@ -556,45 +514,15 @@ namespace TP4_Dev.Classes
                 Console.SetCursorPosition(((Console.BufferWidth - menu[i].Length) / 2), (Console.BufferHeight / 4) + i);
                 Console.WriteLine(menu[i]);
             }
-
-            for (int t = 0; t < Console.BufferHeight; t++)
-            {
-
-                if (t == 13)
-                {
-                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-                    cursorTop = (Console.BufferHeight / 4) + t;
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    lastName = Console.ReadLine();
-                    //VALIDAMOS EL STRING, PASANDO COMO PARAMETROS EL INGRESO Y LA LONGITUD MÁXIMA Y MÍNIMA
-                    if (validator.ValidateString(lastName, 2, 30))
-                    {
-                        return lastName;
-                    }
-                    else { Console.WriteLine("Error de ingreso"); }
-                }
-
-            }
-            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-            Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            validator = null;
-            Console.ReadKey();
-            return "0";
         }
-        public string AddMailMenu()
+        public void AddMailMenu()
         {
-            Validator validator = new Validator();
-            string mail = "0";
+
             /*
             
-            Se genera el menú de información de alumno
+            Se genera el menú de ingreso de mail
             
             */
-
-            //VARIABLES PARA MANIPULAR CURSOR
-            int cursorTop = 0;
-            int cursorLeft = 0;
 
             //ALMACENAMOS EL MENÚ EN UN ARREGLO
             string[] menu = new string[16];
@@ -649,44 +577,16 @@ namespace TP4_Dev.Classes
                 Console.WriteLine(menu[i]);
             }
 
-            for (int t = 0; t < Console.BufferHeight; t++)
-            {
-
-                if (t == 13)
-                {
-                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-                    cursorTop = (Console.BufferHeight / 4) + t;
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    mail = Console.ReadLine();
-                    //VALIDAMOS EL STRING, PASANDO COMO PARAMETROS EL INGRESO Y LA LONGITUD MÁXIMA Y MÍNIMA
-                    if (validator.ValidateMail(mail))
-                    {
-                        return mail;
-                    }
-                    else { Console.WriteLine("Error de ingreso"); }
-                }
-
-            }
-            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-            Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            validator = null;
-            Console.ReadKey();
-            return "0";
+           
         }
-        public int AddPhoneMenu()
+        public void AddPhoneMenu()
         {
-            Validator validator = new Validator();
-            string phone = "0";
+
             /*
             
-            Se genera el menú de información de alumno
+            Se genera el menú de ingreso de teléfono
             
             */
-
-            //VARIABLES PARA MANIPULAR CURSOR
-            int cursorTop = 0;
-            int cursorLeft = 0;
 
             //ALMACENAMOS EL MENÚ EN UN ARREGLO
             string[] menu = new string[16];
@@ -741,44 +641,14 @@ namespace TP4_Dev.Classes
                 Console.WriteLine(menu[i]);
             }
 
-            for (int t = 0; t < Console.BufferHeight; t++)
-            {
-
-                if (t == 13)
-                {
-                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-                    cursorTop = (Console.BufferHeight / 4) + t;
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    phone = Console.ReadLine();
-                    //VALIDAMOS EL NUMERO
-                    if (validator.ValidateInteger(phone, 9, 15))
-                    {
-                        return int.Parse(phone);
-                    }
-                    else { Console.WriteLine("Error de ingreso"); }
-                }
-
-            }
-            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-            Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            validator = null;
-            Console.ReadKey();
-            return 0;
         }
-        public string AddBornDateMenu()
+        public void AddBornDateMenu()
         {
-            Validator validator = new Validator();
-            string date = "";
             /*
             
-            Se genera el menú de información de alumno
+            Se genera el menú de ingreso de fecha de nacimiento
             
             */
-
-            //VARIABLES PARA MANIPULAR CURSOR
-            int cursorTop = 0;
-            int cursorLeft = 0;
 
             //ALMACENAMOS EL MENÚ EN UN ARREGLO
             string[] menu = new string[16];
@@ -832,63 +702,15 @@ namespace TP4_Dev.Classes
                 Console.SetCursorPosition(((Console.BufferWidth - menu[i].Length) / 2), (Console.BufferHeight / 4) + i);
                 Console.WriteLine(menu[i]);
             }
-
-            for (int t = 0; t < Console.BufferHeight; t++)
-            {
-
-                
-                if (t == 13)
-                {
-                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-                    cursorTop = (Console.BufferHeight / 4) + t;
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    for(int i = 0; i < 8; i++)
-                    {
-                        ConsoleKeyInfo keyInfo = Console.ReadKey();
-                        char keyChar = keyInfo.KeyChar;
-                        date = date + keyChar.ToString();
-                        if (i == 1)
-                        {
-                            Console.SetCursorPosition(cursorLeft+3, cursorTop);
-                            date = date + "/";
-                        }
-                        else if (i == 3)
-                        {
-                            Console.SetCursorPosition(cursorLeft + 6, cursorTop);
-                            date = date + "/";
-                        }
-                    }
-                    //Validamos la fecha
-                    if (validator.ValidateDate(date))
-                    {
-                        return date;
-                    }
-                    else { Console.WriteLine($"Error de ingreso"); }
-                }
-
-
-            }
-            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-            Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            validator = null;
-            Console.ReadKey();
-            return date;
         }
-        public string AddFacebookIDMenu()
+        public void AddFacebookIDMenu()
         {
-            Validator validator = new Validator();
-            string id = "0";
             /*
             
-            Se genera el menú de información de alumno
+            Se genera el menú de ingreso de Facebook ID
             
             */
-
-            //VARIABLES PARA MANIPULAR CURSOR
-            int cursorTop = 0;
-            int cursorLeft = 0;
-
+            
             //ALMACENAMOS EL MENÚ EN UN ARREGLO
             string[] menu = new string[16];
             menu[0] = "╔═════════════════════◄►════════════════════╗";
@@ -942,44 +764,15 @@ namespace TP4_Dev.Classes
                 Console.WriteLine(menu[i]);
             }
 
-            for (int t = 0; t < Console.BufferHeight; t++)
-            {
-
-                if (t == 13)
-                {
-                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-                    cursorTop = (Console.BufferHeight / 4) + t;
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    id = Console.ReadLine();
-                    //VALIDAMOS EL STRING, PASANDO COMO PARAMETROS EL INGRESO Y LA LONGITUD MÁXIMA Y MÍNIMA
-                    if (validator.ValidateString(id, 2, 30))
-                    {
-                        return id;
-                    }
-                    else { Console.WriteLine("Error de ingreso"); }
-                }
-
-            }
-            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-            Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            validator = null;
-            Console.ReadKey();
-            return "0";
         }
-        public string AddTwitterIDMenu()
+        public void AddTwitterIDMenu()
         {
-            Validator validator = new Validator();
-            string id = "0";
             /*
             
-            Se genera el menú de información de alumno
+            Se genera el menú de ingreso de Twitter ID
             
             */
 
-            //VARIABLES PARA MANIPULAR CURSOR
-            int cursorTop = 0;
-            int cursorLeft = 0;
 
             //ALMACENAMOS EL MENÚ EN UN ARREGLO
             string[] menu = new string[16];
@@ -1033,45 +826,14 @@ namespace TP4_Dev.Classes
                 Console.SetCursorPosition(((Console.BufferWidth - menu[i].Length) / 2), (Console.BufferHeight / 4) + i);
                 Console.WriteLine(menu[i]);
             }
-
-            for (int t = 0; t < Console.BufferHeight; t++)
-            {
-
-                if (t == 13)
-                {
-                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-                    cursorTop = (Console.BufferHeight / 4) + t;
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    id = Console.ReadLine();
-                    //VALIDAMOS EL STRING, PASANDO COMO PARAMETROS EL INGRESO Y LA LONGITUD MÁXIMA Y MÍNIMA
-                    if (validator.ValidateString(id, 2, 30))
-                    {
-                        return id;
-                    }
-                    else { Console.WriteLine("Error de ingreso"); }
-                }
-
-            }
-            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-            Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            validator = null;
-            Console.ReadKey();
-            return "0";
         }
-        public string AddInstagramIDMenu()
+        public void AddInstagramIDMenu()
         {
-            Validator validator = new Validator();
-            string id = "0";
             /*
             
-            Se genera el menú de información de alumno
+            Se genera el menú de ingreso de Instagram ID
             
             */
-
-            //VARIABLES PARA MANIPULAR CURSOR
-            int cursorTop = 0;
-            int cursorLeft = 0;
 
             //ALMACENAMOS EL MENÚ EN UN ARREGLO
             string[] menu = new string[16];
@@ -1125,45 +887,14 @@ namespace TP4_Dev.Classes
                 Console.SetCursorPosition(((Console.BufferWidth - menu[i].Length) / 2), (Console.BufferHeight / 4) + i);
                 Console.WriteLine(menu[i]);
             }
-
-            for (int t = 0; t < Console.BufferHeight; t++)
-            {
-
-                if (t == 13)
-                {
-                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-                    cursorTop = (Console.BufferHeight / 4) + t;
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    id = Console.ReadLine();
-                    //VALIDAMOS EL STRING, PASANDO COMO PARAMETROS EL INGRESO Y LA LONGITUD MÁXIMA Y MÍNIMA
-                    if (validator.ValidateString(id, 2, 30))
-                    {
-                        return id;
-                    }
-                    else { Console.WriteLine("Error de ingreso"); }
-                }
-
-            }
-            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-            Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            validator = null;
-            Console.ReadKey();
-            return "0";
         }
-        public string AddCountryMenu()
+        public void AddCountryMenu()
         {
-            Validator validator = new Validator();
-            string country = "0";
             /*
             
-            Se genera el menú de información de alumno
+            Se genera el menú de ingreso del país
             
             */
-
-            //VARIABLES PARA MANIPULAR CURSOR
-            int cursorTop = 0;
-            int cursorLeft = 0;
 
             //ALMACENAMOS EL MENÚ EN UN ARREGLO
             string[] menu = new string[16];
@@ -1217,45 +948,14 @@ namespace TP4_Dev.Classes
                 Console.SetCursorPosition(((Console.BufferWidth - menu[i].Length) / 2), (Console.BufferHeight / 4) + i);
                 Console.WriteLine(menu[i]);
             }
-
-            for (int t = 0; t < Console.BufferHeight; t++)
-            {
-
-                if (t == 13)
-                {
-                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-                    cursorTop = (Console.BufferHeight / 4) + t;
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    country = Console.ReadLine();
-                    //VALIDAMOS EL STRING, PASANDO COMO PARAMETROS EL INGRESO Y LA LONGITUD MÁXIMA Y MÍNIMA
-                    if (validator.ValidateString(country, 4, 30))
-                    {
-                        return country;
-                    }
-                    else { Console.WriteLine("Error de ingreso"); }
-                }
-
-            }
-            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-            Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            validator = null;
-            Console.ReadKey();
-            return "0";
         }
-        public string AddCityMenu()
+        public void AddCityMenu()
         {
-            Validator validator = new Validator();
-            string city = "0";
             /*
             
-            Se genera el menú de información de alumno
+            Se genera el menú de ingreso de la ciudad
             
             */
-
-            //VARIABLES PARA MANIPULAR CURSOR
-            int cursorTop = 0;
-            int cursorLeft = 0;
 
             //ALMACENAMOS EL MENÚ EN UN ARREGLO
             string[] menu = new string[16];
@@ -1309,45 +1009,14 @@ namespace TP4_Dev.Classes
                 Console.SetCursorPosition(((Console.BufferWidth - menu[i].Length) / 2), (Console.BufferHeight / 4) + i);
                 Console.WriteLine(menu[i]);
             }
-
-            for (int t = 0; t < Console.BufferHeight; t++)
-            {
-
-                if (t == 13)
-                {
-                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-                    cursorTop = (Console.BufferHeight / 4) + t;
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    city = Console.ReadLine();
-                    //VALIDAMOS EL STRING, PASANDO COMO PARAMETROS EL INGRESO Y LA LONGITUD MÁXIMA Y MÍNIMA
-                    if (validator.ValidateString(city, 4, 30))
-                    {
-                        return city;
-                    }
-                    else { Console.WriteLine("Error de ingreso"); }
-                }
-
-            }
-            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-            Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            validator = null;
-            Console.ReadKey();
-            return "0";
         }
-        public string AddStreetMenu()
+        public void AddStreetMenu()
         {
-            Validator validator = new Validator();
-            string street = "0";
             /*
             
             Se genera el menú de información de alumno
             
             */
-
-            //VARIABLES PARA MANIPULAR CURSOR
-            int cursorTop = 0;
-            int cursorLeft = 0;
 
             //ALMACENAMOS EL MENÚ EN UN ARREGLO
             string[] menu = new string[16];
@@ -1402,32 +1071,6 @@ namespace TP4_Dev.Classes
                 Console.WriteLine(menu[i]);
             }
 
-            for (int t = 0; t < Console.BufferHeight; t++)
-            {
-
-                if (t == 13)
-                {
-                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-                    cursorTop = (Console.BufferHeight / 4) + t;
-                    Console.SetCursorPosition(cursorLeft, cursorTop);
-                    street = Console.ReadLine();
-                    //VALIDAMOS EL STRING, PASANDO COMO PARAMETROS EL INGRESO Y LA LONGITUD MÁXIMA Y MÍNIMA
-                    if (validator.ValidateString(street, 4, 30))
-                    {
-                        return street;
-                    }
-                    else { Console.WriteLine("Error de ingreso"); }
-                }
-
-            }
-            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-            Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            validator = null;
-            Console.ReadKey();
-            return "0";
         }
-
-
-    }
+    }  
 }
