@@ -8,6 +8,14 @@ namespace TP4_Dev.Classes
 {
     public class Reader
     {
+        Validator validator = new Validator();
+        public void ReadStudent()
+        {
 
+        }
+        //public int ReadOption()
+        //{
+        //    return validator.ValidateSelectedOption();
+        //}
     }
 }

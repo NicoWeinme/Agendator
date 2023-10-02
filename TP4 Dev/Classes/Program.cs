@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TP4_Dev.Classes
 {
@@ -15,6 +16,8 @@ namespace TP4_Dev.Classes
             student1.lastName = "Juarez";
             student1.street = "JJ STREET";
             student1.country = "Argentina";
+            student1.mail = "pedrito@gmail.com";
+            student1.city = "Córdoba";
             Student student2 = new Student();
             student2.firstName = "JUAN";
             student2.id = "2";
@@ -28,20 +31,26 @@ namespace TP4_Dev.Classes
             student3.street = "CCCC";
             student3.country = "DDDD";
             Repository<Student> repository = new Repository<Student>();
-            repository.Write(student1);
-            repository.Write(student2);
-            repository.Write(student3);
+            //repository.AddStudent(student1);
+            repository.AddStudent(student2);
+            repository.AddStudent(student3);
+            repository.DeleteStudent(student1);
             repository.Read();
 
+            //Menues menues = new Menues();
+            //menues.AddBornDateMenu();
 
-            
+            //Reader reader = new Reader();
+            //Console.WriteLine(reader.ReadOption());
 
 
-          
-            
-                
 
-            
+
+
+
+
+
+
 
 
         }

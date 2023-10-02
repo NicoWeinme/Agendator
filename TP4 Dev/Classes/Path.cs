@@ -9,5 +9,6 @@ namespace TP4_Dev.Classes
     public class Path
     {
         public string fileName = "DB.Json";
+        public string tempFile = "DB.tmp";
     }
 }

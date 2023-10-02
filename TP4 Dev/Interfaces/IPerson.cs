@@ -13,11 +13,9 @@ namespace TP4_Dev.Interfaces
     {
         string id { get; set; }
         string firstName { get; set; }
-        string secondName { get; set; }
         string lastName { get; set; }
         string mail { get; set; }
         int phone { get; set; }
-        int mobile { get; set; }
         int age { get; set; }
         DateTime bornDate { get; set; }
 
