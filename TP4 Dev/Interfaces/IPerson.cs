@@ -11,13 +11,13 @@ namespace TP4_Dev.Interfaces
     */
     public interface IPerson : IAddress
     {
-        string id { get; set; }
+        int id { get; set; }
         string firstName { get; set; }
         string lastName { get; set; }
         string mail { get; set; }
-        int phone { get; set; }
+        long phone { get; set; }
         int age { get; set; }
-        DateTime bornDate { get; set; }
+        string bornDate { get; set; }
 
 
     }

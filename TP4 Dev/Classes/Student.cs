@@ -12,13 +12,13 @@ namespace TP4_Dev.Classes
     */
     public class Student : IPerson, ISocial
     {
-        public string   id            { get; set; }
+        public int      id            { get; set; }
         public string   firstName     { get; set; }
         public string   lastName      { get; set; }
         public string   mail          { get; set; }
-        public int      phone            { get; set; }
+        public long      phone            { get; set; }
         public int      age              { get; set; }
-        public DateTime bornDate    { get; set; }
+        public string   bornDate    { get; set; }
         public string   facebookID    { get; set; }
         public string   twitterID     { get; set; }
         public string   instagramID   { get; set; }

@@ -13,7 +13,7 @@ namespace TP4_Dev.Classes
     {
 
 
-        public void Read()
+        public void ReadInfo()
         {
             //CREAMOS OBJETO PATH
             Path path = new Path();
@@ -44,7 +44,7 @@ namespace TP4_Dev.Classes
         }
 
         //CREAMOS EL MÉTODO DE ESCRITURA
-        public void AddStudent(Student newStudent)
+        public int AddStudent(Student newStudent)
         {
             //CREAMOS OBJETO PATH
             Path path = new Path();
@@ -66,7 +66,7 @@ namespace TP4_Dev.Classes
                 {
                     students = JsonConvert.DeserializeObject<List<Student>>(contentJson);
                 }
-                catch (Exception e) { Console.WriteLine(e.Message); }
+                catch (Exception e) { Console.WriteLine(e.Message); return 0; }
             }
 
             if (!validator.ValidatePersonExists(students, newStudent))
@@ -76,15 +76,14 @@ namespace TP4_Dev.Classes
                 try
                 {
                     File.WriteAllText(path.fileName, contentJson);
+                    return 1; //Se agregó el alumno
                 }
-                catch (Exception e) { Console.WriteLine(e.Message); }
-                Console.WriteLine($"Se agregó a {newStudent.firstName}, {newStudent.lastName} a su agenda");
+                catch (Exception e) { Console.WriteLine(e.Message); return 0; }
             }
-            else { Console.WriteLine($"El usuario {newStudent.firstName}, {newStudent.lastName} que intenta ingresar ya existe en base de datos"); }            
-
+            else { return 3; }   //Ya existe el alumno en BD  
         }
 
-        public void DeleteStudent(Student newStudent)
+        public int DeleteStudent(Student newStudent)
         {
             //CREAMOS OBJETO PATH
             Path path = new Path();
@@ -111,17 +110,19 @@ namespace TP4_Dev.Classes
 
             if (validator.ValidatePersonExists(students, newStudent))
             {
-                students.RemoveAll(student => string.Equals(student.id.Trim(), newStudent.id.Trim()));
+                students.RemoveAll(student => Equals(student.id, newStudent.id));
                 contentJson = JsonConvert.SerializeObject(students);
                 try
                 {
                     File.WriteAllText(path.fileName, contentJson);
+                    return 1; //Se eliminó al alumno
                 }
-                catch (Exception e) { Console.WriteLine(e.Message); }
-                Console.WriteLine($"Se quitó a {newStudent.firstName}, {newStudent.lastName} de su agenda");
+                catch (Exception e) { Console.WriteLine(e.Message); return 0; }
             }
-            else { Console.WriteLine($"El usuario {newStudent.firstName}, {newStudent.lastName} que intenta eliminar no existe en base de datos"); }
-
+            else 
+            { 
+                return 3; //El usuario no existe en BD
+            }
         }
         public void Query()
         {

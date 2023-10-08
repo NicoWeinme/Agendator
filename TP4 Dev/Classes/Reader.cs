@@ -3,19 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace TP4_Dev.Classes
 {
     public class Reader
     {
         Validator validator = new Validator();
+        public int ReadOption()
+        {
+            Validator validator = new Validator();
+            char option = '0';
+            option = Console.ReadKey().KeyChar;
+            if (validator.ValidateOptions(option))
+            {
+                return int.Parse(option.ToString());
+            }
+            else { return 0; }
+            
+        }
         public int ReadDNI()
         {
-            Menues menues = new Menues();
+            Presenter presenter = new Presenter();
             Validator validator = new Validator();
             string DNI = "0";
 
-            string[] menu = menues.Menu();
+            string[] menu = presenter.Menu();
             //VARIABLES PARA MANIPULAR CURSOR
             int cursorTop = 0;
             int cursorLeft = 0;
@@ -46,11 +59,11 @@ namespace TP4_Dev.Classes
         }
         public string ReadName()
         {
-            Menues menues = new Menues();
+            Presenter presenter = new Presenter();
             Validator validator = new Validator();
             string Name = "0";
 
-            string[] menu = menues.Menu();
+            string[] menu = presenter.Menu();
             //VARIABLES PARA MANIPULAR CURSOR
             int cursorTop = 0;
             int cursorLeft = 0;
@@ -78,11 +91,11 @@ namespace TP4_Dev.Classes
         }
         public string ReadLastName()
         {
-            Menues menues = new Menues();
+            Presenter presenter = new Presenter();
             Validator validator = new Validator();
             string lastName = "0";
 
-            string[] menu = menues.Menu();
+            string[] menu = presenter.Menu();
             //VARIABLES PARA MANIPULAR CURSOR
             int cursorTop = 0;
             int cursorLeft = 0;
@@ -107,11 +120,11 @@ namespace TP4_Dev.Classes
             }
             return "0";
         }
-        public string ReadMail() 
+        public string ReadMail()
         {
-            Menues menues = new Menues();
+            Presenter presenter = new Presenter();
             Validator validator = new Validator();
-            string[] menu = menues.Menu();
+            string[] menu = presenter.Menu();
             //VARIABLES PARA MANIPULAR CURSOR
             int cursorTop = 0;
             int cursorLeft = 0;
@@ -137,11 +150,11 @@ namespace TP4_Dev.Classes
             }
             return "0";
         }
-        public int ReadPhone() 
+        public long ReadPhone()
         {
-            Menues menues = new Menues();
+            Presenter presenter = new Presenter();
             Validator validator = new Validator();
-            string[] menu = menues.Menu();
+            string[] menu = presenter.Menu();
             //VARIABLES PARA MANIPULAR CURSOR
             int cursorTop = 0;
             int cursorLeft = 0;
@@ -157,20 +170,19 @@ namespace TP4_Dev.Classes
                     Console.SetCursorPosition(cursorLeft, cursorTop);
                     phone = Console.ReadLine();
                     //VALIDAMOS EL NUMERO
-                    if (validator.ValidateInteger(phone, 9, 15))
+                    if (validator.ValidateInteger(phone, 8, 15))
                     {
-                        return int.Parse(phone);
+                        return long.Parse(phone);
                     }
-                    else { Console.WriteLine("Error de ingreso"); }
                 }
             }
             return 0;
         }
         public string ReadBornDate()
         {
-            Menues menues = new Menues();
+            Presenter presenter = new Presenter();
             Validator validator = new Validator();
-            string[] menu = menues.Menu();
+            string[] menu = presenter.Menu();
             //VARIABLES PARA MANIPULAR CURSOR
             int cursorTop = 0;
             int cursorLeft = 0;
@@ -206,16 +218,15 @@ namespace TP4_Dev.Classes
                     {
                         return date;
                     }
-                    else { Console.WriteLine($"Error de ingreso"); }
                 }
             }
             return "0";
         }
-        public string ReadCountry() 
+        public string ReadCountry()
         {
-            Menues menues = new Menues();
+            Presenter presenter = new Presenter();
             Validator validator = new Validator();
-            string[] menu = menues.Menu();
+            string[] menu = presenter.Menu();
             //VARIABLES PARA MANIPULAR CURSOR
             int cursorTop = 0;
             int cursorLeft = 0;
@@ -235,17 +246,16 @@ namespace TP4_Dev.Classes
                     {
                         return country;
                     }
-                    else { Console.WriteLine("Error de ingreso"); }
                 }
 
             }
             return "0";
         }
-        public string ReadCity() 
+        public string ReadCity()
         {
-            Menues menues = new Menues();
+            Presenter presenter = new Presenter();
             Validator validator = new Validator();
-            string[] menu = menues.Menu();
+            string[] menu = presenter.Menu();
             //VARIABLES PARA MANIPULAR CURSOR
             int cursorTop = 0;
             int cursorLeft = 0;
@@ -265,17 +275,16 @@ namespace TP4_Dev.Classes
                     {
                         return city;
                     }
-                    else { Console.WriteLine("Error de ingreso"); }
                 }
 
             }
             return "0";
         }
-        public string ReadFacebook() 
+        public string ReadFacebook()
         {
-            Menues menues = new Menues();
+            Presenter presenter = new Presenter();
             Validator validator = new Validator();
-            string[] menu = menues.Menu();
+            string[] menu = presenter.Menu();
             //VARIABLES PARA MANIPULAR CURSOR
             int cursorTop = 0;
             int cursorLeft = 0;
@@ -295,7 +304,6 @@ namespace TP4_Dev.Classes
                     {
                         return id;
                     }
-                    else { Console.WriteLine("Error de ingreso"); }
                 }
 
             }
@@ -303,9 +311,9 @@ namespace TP4_Dev.Classes
         }
         public string ReadTwitter()
         {
-            Menues menues = new Menues();
+            Presenter presenter = new Presenter();
             Validator validator = new Validator();
-            string[] menu = menues.Menu();
+            string[] menu = presenter.Menu();
             //VARIABLES PARA MANIPULAR CURSOR
             int cursorTop = 0;
             int cursorLeft = 0;
@@ -325,17 +333,16 @@ namespace TP4_Dev.Classes
                     {
                         return id;
                     }
-                    else { Console.WriteLine("Error de ingreso"); }
                 }
 
             }
             return "0";
         }
-        public string ReadInstagram() 
+        public string ReadInstagram()
         {
-            Menues menues = new Menues();
+            Presenter presenter = new Presenter();
             Validator validator = new Validator();
-            string[] menu = menues.Menu();
+            string[] menu = presenter.Menu();
             //VARIABLES PARA MANIPULAR CURSOR
             int cursorTop = 0;
             int cursorLeft = 0;
@@ -355,7 +362,6 @@ namespace TP4_Dev.Classes
                     {
                         return id;
                     }
-                    else { Console.WriteLine("Error de ingreso"); }
                 }
 
             }
@@ -363,9 +369,9 @@ namespace TP4_Dev.Classes
         }
         public string ReadStreet()
         {
-            Menues menues = new Menues();
+            Presenter presenter = new Presenter();
             Validator validator = new Validator();
-            string[] menu = menues.Menu();
+            string[] menu = presenter.Menu();
             //VARIABLES PARA MANIPULAR CURSOR
             int cursorTop = 0;
             int cursorLeft = 0;
@@ -381,19 +387,28 @@ namespace TP4_Dev.Classes
                     Console.SetCursorPosition(cursorLeft, cursorTop);
                     street = Console.ReadLine();
                     //VALIDAMOS EL STRING, PASANDO COMO PARAMETROS EL INGRESO Y LA LONGITUD MÁXIMA Y MÍNIMA
-                    if (validator.ValidateString(street, 4, 30))
+                    if (validator.ValidateAddress(street))
                     {
                         return street;
                     }
-                    else { Console.WriteLine("Error de ingreso"); }
                 }
-
             }
             return "0";
         }
-        //public int ReadOption()
-        //{
-        //    return validator.ValidateSelectedOption();
-        //}
+
+        public int ReadAge(string born)
+        {
+            DateTime currentDate = DateTime.Now;
+            DateTime bornDate = DateTime.ParseExact(born, "dd/MM/yyyy", null);
+            int age = currentDate.Year - bornDate.Year;
+
+            if (currentDate.Month < bornDate.Month || (currentDate.Month == bornDate.Month && currentDate.Day < bornDate.Day))
+            {
+                age = age - 1;
+            }
+            return age;
+
+        }
+        
     }
 }

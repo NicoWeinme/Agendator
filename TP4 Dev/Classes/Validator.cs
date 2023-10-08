@@ -32,16 +32,17 @@ namespace TP4_Dev.Classes
             //Y que cumpla con la longitud establecida
             if (!string.IsNullOrWhiteSpace(Input) && (Input.Length >= lengthMin && Input.Length <= lengthMax))
             {
+                Console.WriteLine("IF");
                 try
                 {
-                    int convert = int.Parse(Input);
                     return true;
                 }
                 catch
                 {
-                    return false;
+                     return false ;
                 }
-            }else { return false; }
+            }
+            else { return false; }
             
         }
         //VALIDADOR DE CARACTERES
@@ -85,36 +86,17 @@ namespace TP4_Dev.Classes
             return exists;
         }
 
-        public bool ValidateOptions()
+        public bool ValidateOptions(char option)
         {
             //Validamos la opción ingresada
-            bool validOption = true;
-            int option = 6;
-            while (validOption)
+
+            if (char.IsDigit(option) && option >= '1' && option <= '6')
             {
-                var input = Console.ReadKey();
-                char inputValue = input.KeyChar;
-                switch (inputValue)
-                {
-                    case '1': option = 1; validOption = false; break;
-                    case '2': option = 2; validOption = false; break;
-                    case '3': option = 3; validOption = false; break;
-                    case '4': option = 4; validOption = false; break;
-                    case '5': option = 5; validOption = false; break;
-                    case '6': option = 6; validOption = false; break;
-                    default:
-                        Console.WriteLine("El valor ingresado es incorrecto, vuelva a intentar");
-                        break;
-                }
+                return true;
             }
-            return validOption;
-        }
-        public void ValidateSelectedOption()
-        {
-            bool validOption = true;
-            while (validOption)
+            else
             {
-                
+                return false;
             }
         }
 
@@ -138,6 +120,12 @@ namespace TP4_Dev.Classes
                 }
             }
             return false;
+        }
+        public bool ValidateAddress(string Input)
+        {
+            Regex regex = new Regex(@"^\w+\s+\w+\s+\d+$");
+            Regex regex2 = new Regex(@"^\w+\s+\w+\d+$");
+            return regex.IsMatch(Input) || regex2.IsMatch(Input);
         }
     }
 }
