@@ -12,6 +12,7 @@ namespace TP4_Dev.Classes
             Manager manager = new Manager();
             manager.Start();
 
+
             //Repository<Student> repository = new Repository<Student>();
             //Presenter presenter = new Presenter();
             //Student student = new Student();

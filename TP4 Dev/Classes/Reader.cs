@@ -10,12 +10,12 @@ namespace TP4_Dev.Classes
     public class Reader
     {
         Validator validator = new Validator();
-        public int ReadOption()
+        public int ReadOption(char minValue, char maxValue)
         {
             Validator validator = new Validator();
             char option = '0';
             option = Console.ReadKey().KeyChar;
-            if (validator.ValidateOptions(option))
+            if (validator.ValidateOptions(option, minValue, maxValue))
             {
                 return int.Parse(option.ToString());
             }
@@ -396,10 +396,10 @@ namespace TP4_Dev.Classes
             DateTime currentDate = DateTime.Now;
             DateTime bornDate = DateTime.ParseExact(born, "dd/MM/yyyy", null);
             int age = currentDate.Year - bornDate.Year;
-
+            
             if (currentDate.Month < bornDate.Month || (currentDate.Month == bornDate.Month && currentDate.Day < bornDate.Day))
             {
-                age = age - 1;
+                age --;
             }
             return age;
 

@@ -85,11 +85,11 @@ namespace TP4_Dev.Classes
             }
             return newStudent;
         }
-        public bool ValidateOptions(char option)
+        public bool ValidateOptions(char option, char minValue, char maxValue)
         {
             //Validamos la opción ingresada
 
-            if (char.IsDigit(option) && option >= '1' && option <= '6')
+            if (char.IsDigit(option) && option >= minValue && option <= maxValue)
             {
                 return true;
             }
