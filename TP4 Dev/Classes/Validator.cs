@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -32,7 +33,6 @@ namespace TP4_Dev.Classes
             //Y que cumpla con la longitud establecida
             if (!string.IsNullOrWhiteSpace(Input) && (Input.Length >= lengthMin && Input.Length <= lengthMax))
             {
-                Console.WriteLine("IF");
                 try
                 {
                     return true;
@@ -50,7 +50,6 @@ namespace TP4_Dev.Classes
         {
             return false;
         }
-
         public bool ValidatePath()
         {
             //Validamos la existencia del directorio
@@ -72,7 +71,7 @@ namespace TP4_Dev.Classes
             }
             return exists;
         }
-        public bool ValidateStudentExists(List<Student> students, Student newStudent)
+        public Student ValidateStudentExists(List<Student> students, Student newStudent)
         {
             //Validamos si ya existe el alumno en BD.
             bool exists = false;
@@ -80,12 +79,12 @@ namespace TP4_Dev.Classes
             {
                 if (student.id == newStudent.id)
                 {
-                    exists = true;
+                    newStudent = student;
+                    return newStudent;
                 }
             }
-            return exists;
+            return newStudent;
         }
-
         public bool ValidateOptions(char option)
         {
             //Validamos la opción ingresada
@@ -126,6 +125,18 @@ namespace TP4_Dev.Classes
             Regex regex = new Regex(@"^\w+\s+\w+\s+\d+$");
             Regex regex2 = new Regex(@"^\w+\s+\w+\d+$");
             return regex.IsMatch(Input) || regex2.IsMatch(Input);
+        }
+
+        public bool validateSORN(char character)
+        {
+            if (character == 'S' || character == 'N' || character == 'n' || character == 's')
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace TP4_Dev.Classes
     {
 
 
-        public void ReadInfo()
+        public Student VerifyExists(Student studentCheck)
         {
             //CREAMOS OBJETO PATH
             Path path = new Path();
@@ -24,26 +24,68 @@ namespace TP4_Dev.Classes
             //VARIABLE DE CONTENIDO DEL ARCHIVO
             string contentJson;
 
+            Student student1 = new Student();
             //GENERAMOS UN OBJETO VALIDADOR
             Validator validator = new Validator();
 
             //SE VALIDA EXISTENCIA DE FICHERO REPOSITORIO
             if (validator.ValidatePath())
-            { 
+            {
+                
                 contentJson = File.ReadAllText(path.fileName);
                 try
                 {
                     students = JsonConvert.DeserializeObject<List<Student>>(contentJson);
                 }
                 catch (Exception e) { Console.WriteLine(e.Message); }
-            }else { Console.WriteLine("Nope"); }
+            }
+            
             foreach (Student student in students)
             {
-                Console.WriteLine($"ID: {student.id}, Prop 1: {student.firstName}, Prop2: {student.lastName}, Prop3: {student.street}, Prop4: {student.country}");
+                if (student.id == studentCheck.id)
+                {
+                    student1 = student;
+                }
+            }
+            return student1;
+        }
+        public int VerifyExistsInt(Student studentCheck)
+        {
+            //CREAMOS OBJETO PATH
+            Path path = new Path();
+
+            //CREAMOS LA LISTA DE ALUMNOS
+            List<Student> students = new List<Student>();
+
+            //VARIABLE DE CONTENIDO DEL ARCHIVO
+            string contentJson;
+
+            Student student1 = new Student();
+            //GENERAMOS UN OBJETO VALIDADOR
+            Validator validator = new Validator();
+
+            //SE VALIDA EXISTENCIA DE FICHERO REPOSITORIO
+            if (validator.ValidatePath())
+            {
+
+                contentJson = File.ReadAllText(path.fileName);
+                try
+                {
+                    students = JsonConvert.DeserializeObject<List<Student>>(contentJson);
+                }
+                catch (Exception e) { Console.WriteLine(e.Message); }
+            }
+
+            if (validator.ValidatePersonExists(students, studentCheck))
+            {
+                return 1;
+            }
+            else
+            {
+                return 2;//El usuario no existe en BD
             }
         }
 
-        //CREAMOS EL MÉTODO DE ESCRITURA
         public int AddStudent(Student newStudent)
         {
             //CREAMOS OBJETO PATH
@@ -105,7 +147,7 @@ namespace TP4_Dev.Classes
                 {
                     students = JsonConvert.DeserializeObject<List<Student>>(contentJson);
                 }
-                catch (Exception e) { Console.WriteLine(e.Message); }
+                catch (Exception e) { Console.WriteLine(e.Message);}
             }
 
             if (validator.ValidatePersonExists(students, newStudent))
@@ -123,10 +165,6 @@ namespace TP4_Dev.Classes
             { 
                 return 3; //El usuario no existe en BD
             }
-        }
-        public void Query()
-        {
-
         }
         
     }

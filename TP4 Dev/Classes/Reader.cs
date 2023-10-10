@@ -48,11 +48,6 @@ namespace TP4_Dev.Classes
                     {
                         return int.Parse(DNI);
                     }
-                    else 
-                    {
-                        Console.WriteLine("Error de ingreso");
-                        return 0;
-                    }
                 }
 
             } return 0;
@@ -408,6 +403,15 @@ namespace TP4_Dev.Classes
             }
             return age;
 
+        }
+        public char ReadYesOrNot()
+        {
+            char option = Console.ReadKey().KeyChar;
+            if (validator.validateSORN(option) == true)
+            {
+                return option;
+            }
+            return '0';
         }
         
     }

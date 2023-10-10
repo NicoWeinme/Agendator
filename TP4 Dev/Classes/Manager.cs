@@ -21,7 +21,7 @@ namespace TP4_Dev.Classes
             switch (option)
             {
                 case 1: InsertStudent(); break;
-                case 2: Console.Write("2 seleccionado"); break;
+                case 2: DropStudent(); break;
                 case 3: Console.Write("3 seleccionado"); break;
                 case 4: Console.Write("4 seleccionado"); break;
                 case 5: Console.Write("5 seleccionado"); break;
@@ -215,44 +215,74 @@ namespace TP4_Dev.Classes
             Start();
         }
 
-        public void DeleteStudent(Student student)
+        public void DropStudent()
         {
-            //CREAMOS OBJETO PATH
-            Path path = new Path();
+            bool managerBool = true;
+            int option = 0;
+            Reader reader = new Reader();
+            Presenter presenter = new Presenter();
+            Repository<Student> repository = new Repository<Student>();
+            Student student = new Student();
 
-            //CREAMOS LA LISTA DE ALUMNOS
-            List<Student> students = new List<Student>();
-
-            //VARIABLE DE CONTENIDO DEL ARCHIVO
-            string contentJson;
-
-            //GENERAMOS UN OBJETO VALIDADOR
-            Validator validator = new Validator();
-
-            //SE VALIDA EXISTENCIA DE FICHERO REPOSITORIO
-            if (validator.ValidatePath())
+            //Bucle while para controlar el ingreso de DNI
+            while (managerBool)
             {
-                contentJson = File.ReadAllText(path.fileName);
-                try
+                presenter.ReadDNIMenu();
+                student.id = reader.ReadDNI();
+                int output = repository.VerifyExistsInt(student);
+                if (student.id == 0)
                 {
-                    students = JsonConvert.DeserializeObject<List<Student>>(contentJson);
+                    presenter.InputErrorMessage();
+                } else if (output == 2) 
+                {
+                    presenter.StudentNotFound();
                 }
-                catch (Exception e) { Console.WriteLine(e.Message); }
+                else { managerBool = false; } 
             }
 
-            if (validator.ValidatePersonExists(students, student))
+            managerBool = true;
+            //Bucle while para controlar opción seleccionada
+            while (managerBool)
             {
-                students.Remove(student);
-                contentJson = JsonConvert.SerializeObject(students);
-                try
-                {
-                    File.WriteAllText(path.fileName, contentJson);
-                }
-                catch (Exception e) { Console.WriteLine(e.Message); }
-                Console.WriteLine($"Se agregó a {student.firstName}, {student.lastName} a su agenda");
-            }
-            else { Console.WriteLine($"El usuario {student.firstName}, {student.lastName} que intenta eliminar no existe en base de datos"); }
 
+                presenter.DeleteStudentConfirm(repository.VerifyExists(student));
+
+                char sOrN = reader.ReadYesOrNot();
+                if (sOrN == '0')
+                {
+                    presenter.InputErrorMessage();
+                }
+
+                else if (sOrN == 'n' || sOrN == 'N')
+                {
+                    while (managerBool)
+                    {
+                        presenter.ReadDNIMenu();
+                        student.id = reader.ReadDNI();
+                        if (student.id == 0)
+                        {
+                            presenter.InputErrorMessage();
+                        } 
+                        else
+                        {
+                            managerBool = false;
+                        }
+                    }
+                    managerBool = true;
+                }
+                else { managerBool = false; }
+
+            }
+
+            option = (repository.DeleteStudent(student));
+            if  (option == 1)
+            {
+                
+                presenter.StudentDeleted(student.id);
+
+            }
+
+            Start();
         }
     }
 }
