@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace TP4_Dev.Classes
 {
-    public class Validator
+    internal class Validator
     {
         /// <summary>
         /// EN LA PRESENTE CLASE "Validator" SE REALIZAN TODAS LAS VALIDACIONES CORRESPONDIENTES.

@@ -10,9 +10,9 @@ namespace TP4_Dev.Classes
     /// EN LA PRESENTE CLASE "Path" ENCONTRAMOS EL DIRECTORIO Y NOMBRE DEL ARCHIVO BASE DE DATOS
     /// </summary>
     
-    public class Path
+    internal class Path
     {
-        public string fileName = "DB.Json";
-        public string tempFile = "DB.tmp";
+        internal string fileName = "DB.Json";
+        internal string tempFile = "DB.tmp";
     }
 }

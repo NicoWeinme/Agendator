@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP4_Dev.Interfaces
 {
-    public interface IAddress
+    internal interface IAddress
     {
         public string country { get; set; }
         public string city { get; set; }

@@ -13,7 +13,7 @@ namespace TP4_Dev.Interfaces
     /*
     Creamos la interface Persona con sus correspondientes propiedades
     */
-    public interface IPerson : IAddress
+    internal interface IPerson : IAddress
     {
         int id { get; set; }
         string firstName { get; set; }

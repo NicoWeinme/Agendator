@@ -12,7 +12,7 @@ namespace TP4_Dev.Classes
     /// <summary>
     /// EN LA PRESENTE CLASE "Reader" REALIZAMOS TODAS LAS LECTUAS DE INGRESO POR TECLADO Y SE ENVÍAN A VALIDACIÓN.
     /// </summary>
-    public class Reader
+    internal class Reader
     {
         Validator validator = new Validator();
         public int ReadOption(char minValue, char maxValue)

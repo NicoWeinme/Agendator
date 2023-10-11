@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TP4_Dev.Classes
 {
-    public class Repository<T>
+    internal class Repository<T>
     {
         /// <summary>
         /// EN LA PRESENTE CLASE "Repository" MANIPULAMOS LA ENTRADA Y SALIDA DE DATOS DESDE LA BASE DE DATOS.

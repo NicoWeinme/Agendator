@@ -9,7 +9,7 @@ namespace TP4_Dev.Interfaces
     /*
     Creamos la interface para redes sociales con sus correspondientes propiedades
     */
-    public interface ISocial
+    internal interface ISocial
     {
         string facebookID { get; set; }
         string twitterID { get; set; }

@@ -13,7 +13,7 @@ namespace TP4_Dev.Classes
     /// EN LA PRESENTE CLASE "Manager" REALIZAMOS LA ADMINISTRACIÓN DEL PROGRAMA.
     /// </summary>
     
-    public class Manager
+    internal class Manager
     {
         //MÉTODO START PARA INICIALIZAR APP
         public void Start()

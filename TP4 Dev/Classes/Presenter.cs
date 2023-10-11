@@ -10,7 +10,7 @@ namespace TP4_Dev.Classes
     /// <summary>
     /// EN LA PRESENTE CLASE "Presenter" ENCONTRAMOS TODOS LOS MENÚES GRÁFICOS.
     /// </summary>
-    public class Presenter
+    internal class Presenter
     {
         //MOSTRAMOS EL MENÚ PRINCIPAL
         public string[] Menu()

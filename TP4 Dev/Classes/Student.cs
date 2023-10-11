@@ -13,7 +13,7 @@ namespace TP4_Dev.Classes
     /*
     Creamos la clase Alumno con sus correspondientes propiedades
     */
-    public class Student : IPerson, ISocial
+    internal class Student : IPerson, ISocial
     {
         public int      id            { get; set; }
         public string   firstName     { get; set; }
