@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace TP4_Dev.Classes
 {
+    /// <summary>
+    /// EN LA PRESENTE CLASE "Presenter" ENCONTRAMOS TODOS LOS MENÚES GRÁFICOS.
+    /// </summary>
     public class Presenter
     {
         //MOSTRAMOS EL MENÚ PRINCIPAL
@@ -66,6 +70,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -142,6 +147,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -181,6 +187,7 @@ namespace TP4_Dev.Classes
             for (int t = 0; t < Console.BufferHeight; t++)
             {
 
+                //ESCRIBIMOS EL NOMBRE COMPLETO SOBRE EL MENU
                 if (t == 3)
                 {
                     cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 15;
@@ -188,6 +195,7 @@ namespace TP4_Dev.Classes
                     Console.SetCursorPosition(cursorLeft, cursorTop);
                     Console.WriteLine($"{student.lastName}, {student.firstName}");
                 }
+                //ESCRIBIMOS EL MAIL SOBRE EL MENU
                 else if (t == 4)
                 {
                     cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 15;
@@ -195,6 +203,7 @@ namespace TP4_Dev.Classes
                     Console.SetCursorPosition(cursorLeft, cursorTop);
                     Console.WriteLine($"{student.mail}");
                 }
+                //ESCRIBIMOS EL TELÉFONO SOBRE EL MENU
                 else if (t == 5)
                 {
                     cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 15;
@@ -202,6 +211,7 @@ namespace TP4_Dev.Classes
                     Console.SetCursorPosition(cursorLeft, cursorTop);
                     Console.WriteLine($"{student.phone}");
                 }
+                //ESCRIBIMOS LA FECHA DE NACIMIENTO SOBRE EL MENU
                 else if (t == 6)
                 {
                     cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 15;
@@ -209,13 +219,15 @@ namespace TP4_Dev.Classes
                     Console.SetCursorPosition(cursorLeft, cursorTop);
                     Console.WriteLine($"{student.bornDate}");
                 }
+                //ESCRIBIMOS LA CALLE SOBRE EL MENU
                 else if (t == 7)
                 {
                     cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 15;
                     cursorTop = (Console.BufferHeight / 4) + t;
                     Console.SetCursorPosition(cursorLeft, cursorTop);
-                    Console.WriteLine($"{student.street}, {student.city}");
+                    Console.WriteLine($"{student.street}");
                 }
+                //ESCRIBIMOS EL ID DE TWITTER SOBRE EL MENU
                 else if (t == 8)
                 {
                     cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 15;
@@ -223,6 +235,7 @@ namespace TP4_Dev.Classes
                     Console.SetCursorPosition(cursorLeft, cursorTop);
                     Console.WriteLine($"{student.twitterID}");
                 }
+                //ESCRIBIMOS EL ID DE FACEBOOK SOBRE EL MENU
                 else if (t == 9)
                 {
                     cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 15;
@@ -230,6 +243,7 @@ namespace TP4_Dev.Classes
                     Console.SetCursorPosition(cursorLeft, cursorTop);
                     Console.WriteLine($"{student.facebookID}");
                 }
+                //ESCRIBIMOS EL ID DE INSTAGRAM SOBRE EL MENU
                 else if (t == 10)
                 {
                     cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 15;
@@ -247,7 +261,7 @@ namespace TP4_Dev.Classes
         {
             /*
             
-            Se genera el menú de información de alumno
+            Se genera el menú de información de alumno 2
             
             */
 
@@ -279,6 +293,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -317,7 +332,7 @@ namespace TP4_Dev.Classes
 
             for (int t = 0; t < Console.BufferHeight; t++)
             {
-
+                //ESCRIBIMOS EL PAÍS SOBRE EL MENU
                 if (t == 3)
                 {
                     cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 15;
@@ -325,6 +340,7 @@ namespace TP4_Dev.Classes
                     Console.SetCursorPosition(cursorLeft, cursorTop);
                     Console.WriteLine($"{student.country}");
                 }
+                //ESCRIBIMOS LA CIUDAD SOBRE EL MENU
                 else if (t == 4)
                 {
                     cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 15;
@@ -332,6 +348,7 @@ namespace TP4_Dev.Classes
                     Console.SetCursorPosition(cursorLeft, cursorTop);
                     Console.WriteLine($"{student.city}");
                 }
+                //ESCRIBIMOS LA EDAD SOBRE EL MENU
                 else if (t == 5)
                 {
                     cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 15;
@@ -381,7 +398,9 @@ namespace TP4_Dev.Classes
 
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
-            
+
+
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -457,6 +476,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -519,6 +539,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -643,6 +664,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -707,6 +729,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -769,6 +792,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -830,6 +854,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -893,6 +918,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -954,6 +980,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -1015,6 +1042,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -1076,6 +1104,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -1280,6 +1309,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -1345,6 +1375,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -1424,6 +1455,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -1503,6 +1535,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -1566,12 +1599,12 @@ namespace TP4_Dev.Classes
             menu[1] = "║                 AGENDATOR                 ║";
             menu[2] = "╠═════════════════════╦╦════════════════════╣";
             menu[3] = "║                     ║║                    ║";
-            menu[4] = "║    1.- Nombre       ║║    2.- Apellido    ║";
-            menu[5] = "║    3.- Mail         ║║    4.- Pais        ║";
-            menu[6] = "║    5.- Teléfono     ║║    6.- Ciudad      ║";
-            menu[7] = "║    7.- Fecha Nac.   ║║    8.- Domicilio   ║";
-            menu[8] = "║    9.- Twitter      ║║    0.- Facebook    ║";
-            menu[9] = "║                     ║║                    ║";
+            menu[4] = "║    a.- Nombre       ║║    g.- Pais        ║";
+            menu[5] = "║    b.- Mail         ║║    h.- Ciudad      ║";
+            menu[6] = "║    c.- Teléfono     ║║    i.- Domicilio   ║";
+            menu[7] = "║    d.- Fecha Nac.   ║║    j.- Facebook    ║";
+            menu[8] = "║    e.- Twitter      ║║    k.- Instagram   ║";
+            menu[9] = "║    f.- Apellido     ║║                    ║";
             menu[10] = "║                     ║║                    ║";
             menu[11] = "╠═════════════════════╩╩════════════════════╣";
             menu[12] = "║                       ┌───┐               ║";
@@ -1582,6 +1615,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -1620,7 +1654,6 @@ namespace TP4_Dev.Classes
 
             //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
             Console.SetCursorPosition(cursorLeftPosition, cursorTopPosition);
-            Console.ReadKey();
 
         }
         public void ReadDNIStudentForUpdateMenu()
@@ -1654,6 +1687,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -1716,6 +1750,7 @@ namespace TP4_Dev.Classes
             //LIMPIAMOS LA CONSOLA
             Console.Clear();
 
+            //RECORREMOS LA CONSOLA PARA PODER ARMAR INTERFAZ GRÁFICA
             for (int t = 0; t < Console.BufferHeight; t++)
             {
                 if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
@@ -1747,88 +1782,323 @@ namespace TP4_Dev.Classes
             }
 
         }
-        
-        //public void ValueForupdate(Student student)
-        //{
-        //    /*
+
+        public void updateMenu(string Attribute, string CurrentValue, Student student)
+        {
+            /*
             
-        //    Se genera alerta de error en ingreso.
+            Se genera el menú de información de alumno
             
-        //    */
+            */
 
-        //    //VARIABLES PARA MANIPULAR CURSOR
-        //    int cursorTop = 0;
-        //    int cursorLeft = 0;
+            //VARIABLES PARA MANIPULAR CURSOR
+            int cursorTopPosition = 0;
+            int cursorLeftPosition = 0;
+            int cursorTop = 0;
+            int cursorLeft = 0;
 
-        //    //ALMACENAMOS EL MENÚ EN UN ARREGLO
-        //    string[] menu = new string[16];
-        //    menu[0] = "╔═════════════════════◄►════════════════════╗";
-        //    menu[1] = "║                 AGENDATOR                 ║";
-        //    menu[2] = "╠═══════════════════════════════════════════╣";
-        //    menu[3] = "║                                           ║";
-        //    menu[4] = "║              ¡Carga exitosa!              ║";
-        //    menu[5] = "║                                           ║";
-        //    menu[6] = "║                                           ║";
-        //    menu[7] = "║     Se logró agregar a su agenda a:       ║";
-        //    menu[8] = "║                                           ║";
-        //    menu[9] = "║                                           ║";
-        //    menu[10] = "║                                           ║";
-        //    menu[11] = "╠═══════════════════════════════════════════╣";
-        //    menu[12] = "║           ┌────────────────────────────┐  ║";
-        //    menu[13] = "║ Ingreso:  ┤                            ├  ║";
-        //    menu[14] = "║           └────────────────────────────┘  ║";
-        //    menu[15] = "╚═════════════════════◄►════════════════════╝";
+            //ALMACENAMOS EL MENÚ EN UN ARREGLO
+            string[] menu = new string[16];
+            menu[0] = "╔═════════════════════◄►════════════════════╗";
+            menu[1] = "║                 AGENDATOR                 ║";
+            menu[2] = "╠═══════════════════════════════════════════╣";
+            menu[3] = "║ Contacto:                                 ║";
+            menu[4] = "║                                           ║";
+            menu[5] = "║         Está a punto de modificar:        ║";
+            menu[6] = "║                                           ║";
+            menu[7] = "║                                           ║";
+            menu[8] = "║ Actualmente es:                           ║";
+            menu[9] = "║                                           ║";
+            menu[10] = "║                                           ║";
+            menu[11] = "╠═══════════════════════════════════════════╣";
+            menu[12] = "║           ┌────────────────────────────┐  ║";
+            menu[13] = "║ Ingreso:  ┤                            ├  ║";
+            menu[14] = "║           └────────────────────────────┘  ║";
+            menu[15] = "╚═════════════════════◄►════════════════════╝";
 
-        //    //LIMPIAMOS LA CONSOLA
-        //    Console.Clear();
+            //LIMPIAMOS LA CONSOLA
+            Console.Clear();
 
-        //    for (int t = 0; t < Console.BufferHeight; t++)
-        //    {
-        //        if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
-        //        {
-        //            for (int j = 0; j < Console.BufferWidth; j++)
-        //            {
-        //                if (j >= ((Console.BufferWidth - menu[0].Length) / 2) && j < (((Console.BufferWidth - menu[0].Length) / 2) + menu[0].Length))
-        //                {
-        //                    Console.Write("W");
-        //                }
-        //                else if (j <= (Console.BufferWidth - menu[0].Length) / 2 || j >= (((Console.BufferWidth - menu[0].Length) / 2) + menu[0].Length))
-        //                {
-        //                    Console.Write("W");
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            for (int j = 0; j < Console.BufferWidth; j++)
-        //            {
-        //                Console.Write("W");
-        //            }
-        //        }
-        //    }
+            for (int t = 0; t < Console.BufferHeight; t++)
+            {
+                if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
+                {
+                    for (int j = 0; j < Console.BufferWidth; j++)
+                    {
+                        if (j >= ((Console.BufferWidth - menu[0].Length) / 2) && j < (((Console.BufferWidth - menu[0].Length) / 2) + menu[0].Length))
+                        {
+                            if (t == 13)
+                            {
+                                cursorLeftPosition = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
+                                cursorTopPosition = (Console.BufferHeight / 4) + t;
+                            }
+                            Console.Write("W");
+                        }
+                        else if (j <= (Console.BufferWidth - menu[0].Length) / 2 || j >= (((Console.BufferWidth - menu[0].Length) / 2) + menu[0].Length))
+                        {
+                            Console.Write("W");
+                        }
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < Console.BufferWidth; j++)
+                    {
+                        Console.Write("W");
+                    }
+                }
+            }
 
-        //    for (int i = 0; i < 16; i++)
-        //    {
-        //        Console.SetCursorPosition(((Console.BufferWidth - menu[i].Length) / 2), (Console.BufferHeight / 4) + i);
-        //        Console.WriteLine(menu[i]);
-        //    }
+            for (int i = 0; i < 16; i++)
+            {
+                Console.SetCursorPosition(((Console.BufferWidth - menu[i].Length) / 2), (Console.BufferHeight / 4) + i);
+                Console.WriteLine(menu[i]);
+            }
 
-        //    for (int t = 0; t < Console.BufferHeight; t++)
-        //    {
+            for (int t = 0; t < Console.BufferHeight; t++)
+            {
 
-        //        if (t == 9)
-        //        {
-        //            cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
-        //            cursorTop = (Console.BufferHeight / 4) + t;
-        //        }
+                if (t == 3)
+                {
+                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 13;
+                    cursorTop = (Console.BufferHeight / 4) + t;
+                    Console.SetCursorPosition(cursorLeft, cursorTop);
+                    Console.WriteLine($"{student.lastName}, {student.firstName}");
+                }
+                else if (t == 6)
+                {
+                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 13;
+                    cursorTop = (Console.BufferHeight / 4) + t;
+                    Console.SetCursorPosition(cursorLeft, cursorTop);
+                    Console.WriteLine($"{Attribute}");
+                }
+                else if (t == 8)
+                {
+                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 18;
+                    cursorTop = (Console.BufferHeight / 4) + t;
+                    Console.SetCursorPosition(cursorLeft, cursorTop);
+                    Console.WriteLine($"{CurrentValue}");
+                }
+                
+            }
+            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
+            Console.SetCursorPosition(cursorLeftPosition, cursorTopPosition);
 
-        //    }
-        //    //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
-        //    Console.SetCursorPosition(cursorLeft, cursorTop);
-        //    Console.WriteLine($"{student.lastName}, {student.firstName}");
-        //    Console.ReadKey();
-        //}
+        }
+        public void ListOfContactsMenu(List<Student> students)
+        {
+            /*
             
+            Se genera el menú de información de alumno
+            
+            */
+
+            //VARIABLES PARA MANIPULAR CURSOR
+            int cursorTopPosition = 0;
+            int cursorLeftPosition = 0;
+            int cursorTop = 0;
+            int cursorLeft = 0;
+
+            //ALMACENAMOS EL MENÚ EN UN ARREGLO
+            string[] menu = new string[16];
+            menu[0] = "╔═════════════════════◄►════════════════════╗";
+            menu[1] = "║                 AGENDATOR                 ║";
+            menu[2] = "╠══════════╦════════════════════════════════╣";
+            menu[3] = "║   DNI    ║           Nombre               ║";
+            menu[4] = "╠══════════╬════════════════════════════════╣";
+            menu[5] = "║          ║                                ║";
+            menu[6] = "║          ║                                ║";
+            menu[7] = "║          ║                                ║";
+            menu[8] = "║          ║                                ║";
+            menu[9] = "║          ║                                ║";
+            menu[10] = "║          ║                                ║";
+            menu[11] = "╠══════════╩════════════════════════════════╣";
+            menu[12] = "║                                           ║";
+            menu[13] = "║   Presione una tecla para continuar...    ║";
+            menu[14] = "║                                           ║";
+            menu[15] = "╚═════════════════════◄►════════════════════╝";
+
+            
+
+            
+            int temp = 0;
+
+            for (int s = 0; s < students.Count; s += 4) 
+            {
+                //LIMPIAMOS LA CONSOLA
+                Console.Clear();
+
+                for (int t = 0; t < Console.BufferHeight; t++)
+                {
+                    if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
+                    {
+                        for (int j = 0; j < Console.BufferWidth; j++)
+                        {
+                            if (j >= ((Console.BufferWidth - menu[0].Length) / 2) && j < (((Console.BufferWidth - menu[0].Length) / 2) + menu[0].Length))
+                            {
+                                if (t == 13)
+                                {
+                                    cursorLeftPosition = ((Console.BufferWidth - menu[t].Length) / 2) + 39;
+                                    cursorTopPosition = (Console.BufferHeight / 4) + t;
+                                }
+                                Console.Write("W");
+                            }
+                            else if (j <= (Console.BufferWidth - menu[0].Length) / 2 || j >= (((Console.BufferWidth - menu[0].Length) / 2) + menu[0].Length))
+                            {
+                                Console.Write("W");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j < Console.BufferWidth; j++)
+                        {
+                            Console.Write("W");
+                        }
+                    }
+                }
+
+                for (int i = 0; i < 16; i++)
+                {
+                    Console.SetCursorPosition(((Console.BufferWidth - menu[i].Length) / 2), (Console.BufferHeight / 4) + i);
+                    Console.WriteLine(menu[i]);
+                }
+
+                for (int t = 0; t < Console.BufferHeight; t++)
+                {
+
+                    for (int i = temp; i < students.Count; i++)
+                    {
+                        if (t == 5)
+                        {
+                            if (students.Count < 4 && students.Count > 0)
+                            {
+                                for (int cantStudents = 0; cantStudents < students.Count; cantStudents++)
+                                {
+                                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 2;
+                                    cursorTop = (Console.BufferHeight / 4) + t;
+                                    Console.SetCursorPosition(cursorLeft, cursorTop);
+                                    Console.WriteLine($"{students[i].id}");
+                                    cursorLeft = cursorLeft + 12;
+                                    Console.SetCursorPosition(cursorLeft, cursorTop);
+                                    Console.WriteLine($"{students[i].lastName}, {students[i].firstName}");
+                                    i++;
+                                    t++;
+                                    temp = i;
+                                }
+                            }
+                            else
+                            {
+                                for (int cantStudents = 0; cantStudents < 4; cantStudents++)
+                                {
+                                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 2;
+                                    cursorTop = (Console.BufferHeight / 4) + t;
+                                    Console.SetCursorPosition(cursorLeft, cursorTop);
+                                    if (i < students.Count)
+                                    {
+                                        Console.WriteLine($"{students[i].id}");
+                                        cursorLeft = cursorLeft + 12;
+                                        Console.SetCursorPosition(cursorLeft, cursorTop);
+                                        Console.WriteLine($"{students[i].lastName}, {students[i].firstName}");
+                                    }
+                                    i++;
+                                    t++;
+                                    temp = i;
+                                }
+
+                            }
+                        }
+                    }
+                }
+                Console.SetCursorPosition(cursorLeftPosition, cursorTopPosition);
+                Console.ReadKey();
+            }
+            //ESTABLECEMOS LA POSICIÓN DEL CURSOR EN EL CAMPO DE INGRESO
+            Console.SetCursorPosition(cursorLeftPosition, cursorTopPosition);
+            
+        }
+
+        public void StudentUpdated(Student student)
+        {
+            /*
+            
+            Se genera alerta de error en ingreso.
+            
+            */
+
+            //VARIABLES PARA MANIPULAR CURSOR
+            int cursorTop = 0;
+            int cursorLeft = 0;
+
+            //ALMACENAMOS EL MENÚ EN UN ARREGLO
+            string[] menu = new string[16];
+            menu[0] = "╔═════════════════════◄►════════════════════╗";
+            menu[1] = "║                 AGENDATOR                 ║";
+            menu[2] = "╠═══════════════════════════════════════════╣";
+            menu[3] = "║                                           ║";
+            menu[4] = "║          ¡Eliminación Exitosa!            ║";
+            menu[5] = "║                                           ║";
+            menu[6] = "║                                           ║";
+            menu[7] = "║    Se actualizó la información para:      ║";
+            menu[8] = "║                                           ║";
+            menu[9] = "║                                           ║";
+            menu[10] = "║                                           ║";
+            menu[11] = "╠═══════════════════════════════════════════╣";
+            menu[12] = "║                                           ║";
+            menu[13] = "║   Presione una tecla para continuar...    ║";
+            menu[14] = "║                                           ║";
+            menu[15] = "╚═════════════════════◄►════════════════════╝";
+
+            //LIMPIAMOS LA CONSOLA
+            Console.Clear();
+
+            for (int t = 0; t < Console.BufferHeight; t++)
+            {
+                if (t >= Console.BufferHeight / 4 && t <= (Console.BufferHeight / 4 + 15))
+                {
+                    for (int j = 0; j < Console.BufferWidth; j++)
+                    {
+                        if (j >= ((Console.BufferWidth - menu[0].Length) / 2) && j < (((Console.BufferWidth - menu[0].Length) / 2) + menu[0].Length))
+                        {
+                            Console.Write("W");
+                        }
+                        else if (j <= (Console.BufferWidth - menu[0].Length) / 2 || j >= (((Console.BufferWidth - menu[0].Length) / 2) + menu[0].Length))
+                        {
+                            Console.Write("W");
+                        }
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < Console.BufferWidth; j++)
+                    {
+                        Console.Write("W");
+                    }
+                }
+            }
+
+            for (int i = 0; i < 16; i++)
+            {
+                Console.SetCursorPosition(((Console.BufferWidth - menu[i].Length) / 2), (Console.BufferHeight / 4) + i);
+                Console.WriteLine(menu[i]);
+            }
+
+            for (int t = 0; t < Console.BufferHeight; t++)
+            {
+
+                if (t == 9)
+                {
+                    cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 5;
+                    cursorTop = (Console.BufferHeight / 4) + t;
+                }
+
+            }
+            Console.SetCursorPosition(cursorLeft, cursorTop);
+            Console.WriteLine($"{student.lastName}, {student.firstName}");
+            Console.ReadKey();
+        }
     }
+
+    
     
 }

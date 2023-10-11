@@ -11,7 +11,9 @@ namespace TP4_Dev.Classes
 {
     public class Repository<T>
     {
-
+        /// <summary>
+        /// EN LA PRESENTE CLASE "Repository" MANIPULAMOS LA ENTRADA Y SALIDA DE DATOS DESDE LA BASE DE DATOS.
+        /// </summary>
 
         public Student VerifyExists(Student studentCheck)
         {
@@ -166,6 +168,69 @@ namespace TP4_Dev.Classes
                 return 3; //El usuario no existe en BD
             }
         }
-        
+        public void UpdateStudent(Student studentInput)
+        {
+            //CREAMOS OBJETO PATH
+            Path path = new Path();
+
+            //CREAMOS LA LISTA DE ALUMNOS
+            List<Student> students = new List<Student>();
+
+            //VARIABLE DE CONTENIDO DEL ARCHIVO
+            string contentJson;
+
+            Student student1 = new Student();
+            //GENERAMOS UN OBJETO VALIDADOR
+            Validator validator = new Validator();
+
+            //SE VALIDA EXISTENCIA DE FICHERO REPOSITORIO
+            if (validator.ValidatePath())
+            {
+                contentJson = File.ReadAllText(path.fileName);
+                try
+                {
+                    students = JsonConvert.DeserializeObject<List<Student>>(contentJson);
+                }
+                catch (Exception e) { Console.WriteLine(e.Message); }
+            }
+            students.RemoveAll(student => Equals(student.id, studentInput.id));
+            students.Add(studentInput);
+            contentJson = JsonConvert.SerializeObject(students);
+            try
+            {
+                File.WriteAllText(path.fileName, contentJson);
+            }
+            catch (Exception e) { Console.WriteLine(e.Message); }
+        }
+
+        public List<Student> FindListOfStudents()
+        {
+            //CREAMOS OBJETO PATH
+            Path path = new Path();
+
+            //CREAMOS LA LISTA DE ALUMNOS
+            List<Student> students = new List<Student>();
+
+            //VARIABLE DE CONTENIDO DEL ARCHIVO
+            string contentJson;
+
+            Student student1 = new Student();
+            //GENERAMOS UN OBJETO VALIDADOR
+            Validator validator = new Validator();
+
+            //SE VALIDA EXISTENCIA DE FICHERO REPOSITORIO
+            if (validator.ValidatePath())
+            {
+
+                contentJson = File.ReadAllText(path.fileName);
+                try
+                {
+                    students = JsonConvert.DeserializeObject<List<Student>>(contentJson);
+                }
+                catch (Exception e) { Console.WriteLine(e.Message); }
+            }
+            return students;
+
+        }
     }
 }

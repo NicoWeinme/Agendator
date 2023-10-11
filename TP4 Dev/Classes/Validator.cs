@@ -13,6 +13,10 @@ namespace TP4_Dev.Classes
 {
     public class Validator
     {
+        /// <summary>
+        /// EN LA PRESENTE CLASE "Validator" SE REALIZAN TODAS LAS VALIDACIONES CORRESPONDIENTES.
+        /// </summary>
+        
         //VALIDADOR DE CADENAS, RECIBE COMO PARAMETRO LA CADENA Y SU LONGITUD
         public bool ValidateString(string Input, int lengthMin, int lenghtMax)
         {
@@ -96,6 +100,19 @@ namespace TP4_Dev.Classes
             else
             {
                 return false;
+            }
+        }
+        public bool ValidateOptionsForUpdate(char option)
+        {
+            //Validamos la opción ingresada
+            string options = "ABCDEFGHIJKabcdefghijk";
+            if (options.IndexOf(option) == -1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 

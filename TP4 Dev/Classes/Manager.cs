@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace TP4_Dev.Classes
 {
+    /// <summary>
+    /// EN LA PRESENTE CLASE "Manager" REALIZAMOS LA ADMINISTRACIÓN DEL PROGRAMA.
+    /// </summary>
+    
     public class Manager
     {
         //MÉTODO START PARA INICIALIZAR APP
@@ -17,7 +21,7 @@ namespace TP4_Dev.Classes
             Reader reader = new Reader();
             Presenter presenter = new Presenter();
             presenter.ShowMainMenu();
-            int option = reader.ReadOption('1' ,'6');
+            int option = reader.ReadOption('1', '6');
             bool managerBool = true;
             while (managerBool)
             {
@@ -25,15 +29,15 @@ namespace TP4_Dev.Classes
                 {
                     case 1: InsertStudent(); break;
                     case 2: DropStudent(); break;
-                    case 3: /*ModifyStudent()*/; break;
-                    case 4: /*QueryStudentInfo()*/; break;
-                    case 5: Console.Write("5 seleccionado"); break;
+                    case 3: ModifyStudent(); break;
+                    case 4: QueryStudentInfo(); break;
+                    case 5: ListOfContacts(); break;
                     case 6: Environment.Exit(0); break;
                     default: presenter.InputErrorMessage(); Start(); break;
                 }
             }
         }
-        public void InsertStudent() 
+        public void InsertStudent()
         {
             bool managerBool = true;
             Reader reader = new Reader();
@@ -63,7 +67,7 @@ namespace TP4_Dev.Classes
                 if (student.firstName == "0")
                 {
                     presenter.InputErrorMessage();
-                    
+
                 }
                 else { managerBool = false; }
             }
@@ -218,6 +222,42 @@ namespace TP4_Dev.Classes
             Start();
         }
 
+        //Consulta de información del contacto
+        public void QueryStudentInfo()
+        {
+            bool managerBool = true;
+            Reader reader = new Reader();
+            Presenter presenter = new Presenter();
+            Repository<Student> repository = new Repository<Student>();
+            Student student = new Student();
+
+            //Bucle while para controlar el ingreso de DNI
+            while (managerBool)
+            {
+                presenter.ReadDNIStudentForQueryMenu();
+                student.id = reader.ReadDNI();
+                int output = repository.VerifyExistsInt(student);
+                if (student.id == 0)
+                {
+                    presenter.InputErrorMessage();
+                }
+                else if (output == 2)
+                {
+                    presenter.StudentNotFound();
+                }
+                else
+                {
+                    student = repository.VerifyExists(student);
+                    presenter.StudentInfoMenu1(student);
+                    presenter.StudentInfoMenu2(student);
+                    managerBool = false;
+                }
+            }
+
+            Start();
+        }
+
+        //Eliminación de contacto
         public void DropStudent()
         {
             bool managerBool = true;
@@ -236,11 +276,11 @@ namespace TP4_Dev.Classes
                 if (student.id == 0)
                 {
                     presenter.InputErrorMessage();
-                } else if (output == 2) 
+                } else if (output == 2)
                 {
                     presenter.StudentNotFound();
                 }
-                else { managerBool = false; } 
+                else { managerBool = false; }
             }
 
             managerBool = true;
@@ -265,7 +305,7 @@ namespace TP4_Dev.Classes
                         if (student.id == 0)
                         {
                             presenter.InputErrorMessage();
-                        } 
+                        }
                         else
                         {
                             managerBool = false;
@@ -278,95 +318,276 @@ namespace TP4_Dev.Classes
             }
 
             option = (repository.DeleteStudent(student));
-            if  (option == 1)
+            if (option == 1)
             {
-                
+
                 presenter.StudentDeleted(student.id);
 
             }
 
             Start();
         }
-    //    public void ModifyStudent()
-    //    {
-    //        bool managerBool = true;
-    //        int option = 0;
-    //        Reader reader = new Reader();
-    //        Presenter presenter = new Presenter();
-    //        Repository<Student> repository = new Repository<Student>();
-    //        Student student = new Student();
 
-    //        //Bucle while para controlar el ingreso de DNI
-    //        while (managerBool)
-    //        {
-    //            presenter.ReadDNIStudentForUpdateMenu();
-    //            student.id = reader.ReadDNI();
-    //            int output = repository.VerifyExistsInt(student);
-    //            if (student.id == 0)
-    //            {
-    //                presenter.InputErrorMessage();
-    //            }
-    //            else if (output == 2)
-    //            {
-    //                presenter.StudentNotFound();
-    //            }
-    //            else 
-    //            {
-    //                managerBool = false; 
-    //            }
-    //        }
-    //        student = repository.VerifyExists(student);
-    //        presenter.SelectValueForUpdateMenu();
-    //        option = reader.ReadOption('0', '9');
-    //        switch (option)
-    //        {
-    //            case 0: Console.WriteLine("0"); break;
-    //            case 1: Console.WriteLine("1"); break;
-    //            case 2: Console.WriteLine("2"); break;
-    //            case 3: Console.WriteLine("3"); break;
-    //            case 4: Console.WriteLine("4"); break;
-    //            case 5: Console.WriteLine("5"); break;
-    //            case 6: Console.WriteLine("6"); break;
-    //            case 7: Console.WriteLine("7"); break;
-    //            case 8: Console.WriteLine("8"); break;
-    //            case 9: Console.WriteLine("9"); break;
-    //            default: Console.WriteLine("Default");
-    //                break;
-    //        }
-    //        Start();
-    //    }
-    //    public void QueryStudentInfo()
-    //    {
-    //        bool managerBool = true;
-    //        Reader reader = new Reader();
-    //        Presenter presenter = new Presenter();
-    //        Repository<Student> repository = new Repository<Student>();
-    //        Student student = new Student();
+        //Modificación de contacto
+        public void ModifyStudent()
+        {
+            bool managerBool = true;
+            char option = '0';
+            Reader reader = new Reader();
+            Presenter presenter = new Presenter();
+            Repository<Student> repository = new Repository<Student>();
+            Student student = new Student();
 
-    //        //Bucle while para controlar el ingreso de DNI
-    //        while (managerBool)
-    //        {
-    //            presenter.ReadDNIStudentForQueryMenu();
-    //            student.id = reader.ReadDNI();
-    //            int output = repository.VerifyExistsInt(student);
-    //            if (student.id == 0)
-    //            {
-    //                presenter.InputErrorMessage();
-    //            }
-    //            else if (output == 2)
-    //            {
-    //                presenter.StudentNotFound();
-    //            }
-    //            else 
-    //            {
-    //                student = repository.VerifyExists(student);
-    //                presenter.StudentInfoMenu1(student);
-    //                presenter.StudentInfoMenu2(student);
-    //                managerBool = false; 
-    //            }
-    //        }
+            //Bucle while para controlar el ingreso de DNI
+            while (managerBool)
+            {
+                presenter.ReadDNIStudentForUpdateMenu();
+                student.id = reader.ReadDNI();
+                int output = repository.VerifyExistsInt(student);
+                if (student.id == 0)
+                {
+                    presenter.InputErrorMessage();
+                }
+                else if (output == 2)
+                {
+                    presenter.StudentNotFound();
+                }
+                else
+                {
+                    managerBool = false;
+                }
+            }
 
-    //        Start();
-    //    }
+            managerBool = true;
+            student = repository.VerifyExists(student);
+            while (managerBool)
+            {
+                presenter.SelectValueForUpdateMenu();
+                option = reader.ReadOptionForUpdate();
+                switch (option)
+                {
+                    case 'j': repository.UpdateStudent(ModifyFacebookId(presenter, student, reader, option)); managerBool = false; break;
+                    case 'a': repository.UpdateStudent(ModifyName(presenter, student, reader, option)); managerBool = false; break;
+                    case 'f': repository.UpdateStudent(ModifyLastName(presenter, student, reader, option)); managerBool = false; break;
+                    case 'b': repository.UpdateStudent(ModifyMail(presenter, student, reader, option)); managerBool = false; break;
+                    case 'g': repository.UpdateStudent(ModifyCountry(presenter, student, reader, option)); managerBool = false; break;
+                    case 'c': repository.UpdateStudent(ModifyPhone(presenter, student, reader, option)); managerBool = false; break;
+                    case 'h': repository.UpdateStudent(ModifyCity(presenter, student, reader, option)); managerBool = false; break;
+                    case 'd': repository.UpdateStudent(ModifyBornDate(presenter, student, reader, option)); managerBool = false; break;
+                    case 'i': repository.UpdateStudent(ModifyStreet(presenter, student, reader, option)); managerBool = false; break;
+                    case 'e': repository.UpdateStudent(ModifyTwitterId(presenter, student, reader, option)); managerBool = false; break;
+                    case 'k': repository.UpdateStudent(ModifyInstagramID(presenter, student, reader, option)); managerBool = false; break;
+                    case 'J': repository.UpdateStudent(ModifyFacebookId(presenter, student, reader, option)); managerBool = false; break;
+                    case 'A': repository.UpdateStudent(ModifyName(presenter, student, reader, option)); managerBool = false; break;
+                    case 'F': repository.UpdateStudent(ModifyLastName(presenter, student, reader, option)); managerBool = false; break;
+                    case 'B': repository.UpdateStudent(ModifyMail(presenter, student, reader, option)); managerBool = false; break;
+                    case 'G': repository.UpdateStudent(ModifyCountry(presenter, student, reader, option)); managerBool = false; break;
+                    case 'C': repository.UpdateStudent(ModifyPhone(presenter, student, reader, option)); managerBool = false; break;
+                    case 'H': repository.UpdateStudent(ModifyCity(presenter, student, reader, option)); managerBool = false; break;
+                    case 'D': repository.UpdateStudent(ModifyBornDate(presenter, student, reader, option)); managerBool = false; break;
+                    case 'I': repository.UpdateStudent(ModifyStreet(presenter, student, reader, option)); managerBool = false; break;
+                    case 'E': repository.UpdateStudent(ModifyTwitterId(presenter, student, reader, option)); managerBool = false; break;
+                    case 'K': repository.UpdateStudent(ModifyInstagramID(presenter, student, reader, option)); managerBool = false; break;
+                    case 'l': repository.UpdateStudent(ModifyID(presenter, student, reader, option)); managerBool = false; break;
+                    default:
+                        presenter.InputErrorMessage(); Start(); break;
+                }
+            }
+            presenter.StudentUpdated(student);
+            Start();
+        }
+
+        //Modificación de campos
+        public Student ModifyFacebookId(Presenter presenter, Student student, Reader reader, char option)
+        {
+            bool managerBool = true;
+            while (managerBool)
+            {
+                presenter.updateMenu("facebook ID", student.facebookID, student);
+                string temp = reader.ReadNewValue(option);
+                if (temp == "0")
+                {
+                    presenter.InputErrorMessage();
+                }
+                else { student.facebookID = temp;  managerBool = false; }
+            }
+            return student;
+        }
+        public Student ModifyName(Presenter presenter, Student student, Reader reader, char option)
+        {
+            bool managerBool = true;
+            while (managerBool)
+            {
+                presenter.updateMenu("el nombre", student.firstName, student);
+                string temp = reader.ReadNewValue(option);
+                if (temp == "0")
+                {
+                    presenter.InputErrorMessage();
+                }
+                else { student.firstName = temp; managerBool = false; }
+            }
+            return student;
+        }
+        public Student ModifyCountry(Presenter presenter, Student student, Reader reader, char option)
+        {
+            bool managerBool = true;
+            while (managerBool)
+            {
+                presenter.updateMenu("el pais", student.country, student);
+                string temp = reader.ReadNewValue(option);
+                if (temp == "0")
+                {
+                    presenter.InputErrorMessage();
+                }
+                else { student.country = temp; managerBool = false; }
+            }
+            return student;
+        }
+        public Student ModifyLastName(Presenter presenter, Student student, Reader reader, char option)
+        {
+            bool managerBool = true;
+            while (managerBool)
+            {
+                presenter.updateMenu("el apellido", student.lastName, student);
+                string temp = reader.ReadNewValue(option);
+                if (temp == "0")
+                {
+                    presenter.InputErrorMessage();
+                }
+                else { student.lastName = temp; managerBool = false; }
+            }
+            return student;
+        }
+        public Student ModifyMail(Presenter presenter, Student student, Reader reader, char option)
+        {
+            bool managerBool = true;
+            while (managerBool)
+            {
+                presenter.updateMenu("el correo electronico", student.mail, student);
+                string temp = reader.ReadNewValue(option);
+                if (temp == "0")
+                {
+                    presenter.InputErrorMessage();
+                }
+                else { student.mail = temp; managerBool = false; }
+            }
+            return student;
+        }
+        public Student ModifyCity(Presenter presenter, Student student, Reader reader, char option)
+        {
+            bool managerBool = true;
+            while (managerBool)
+            {
+                presenter.updateMenu("la ciudad", student.city, student);
+                string temp = reader.ReadNewValue(option);
+                if (temp == "0")
+                {
+                    presenter.InputErrorMessage();
+                }
+                else { student.city = temp; managerBool = false; }
+            }
+            return student;
+        }
+        public Student ModifyStreet(Presenter presenter, Student student, Reader reader, char option)
+        {
+           
+            bool managerBool = true;
+            while (managerBool)
+            {
+
+                presenter.updateMenu("el domicilio", student.street, student);
+                string temp = reader.ReadNewValue(option);
+                if (temp == "0")
+                {
+                    presenter.InputErrorMessage();
+                }
+                else { student.street = temp; managerBool = false; }
+            }
+            return student;
+        }
+        public Student ModifyPhone(Presenter presenter, Student student, Reader reader, char option)
+        {
+            bool managerBool = true;
+            while (managerBool)
+            {
+                presenter.updateMenu("el telefono", student.phone.ToString(), student);
+                string temp = reader.ReadNewValue(option);
+                if (temp == "0")
+                {
+                    presenter.InputErrorMessage();
+                }
+                else { student.phone = int.Parse(temp); managerBool = false; }
+            }
+            return student;
+        }
+        public Student ModifyTwitterId(Presenter presenter, Student student, Reader reader, char option)
+        {
+            bool managerBool = true;
+            while (managerBool)
+            {
+                presenter.updateMenu("twitter ID", student.twitterID, student);
+                string temp = reader.ReadNewValue(option);
+                if (temp == "0")
+                {
+                    presenter.InputErrorMessage();
+                }
+                else { student.twitterID = temp; managerBool = false; }
+            }
+            return student;
+        }
+        public Student ModifyInstagramID(Presenter presenter, Student student, Reader reader, char option)
+        {
+            bool managerBool = true;
+            while (managerBool)
+            {
+                presenter.updateMenu("instagram ID", student.instagramID, student);
+                string temp = reader.ReadNewValue(option);
+                if (temp == "0")
+                {
+                    presenter.InputErrorMessage();
+                }
+                else { student.instagramID = temp; managerBool = false; }
+            }
+            return student;
+        }
+        public Student ModifyBornDate(Presenter presenter, Student student, Reader reader, char option)
+        {
+            bool managerBool = true;
+            while (managerBool)
+            {
+
+                presenter.updateMenu("fecha de nacimiento", student.bornDate, student);
+                string temp = reader.ReadNewValue(option);
+                if (temp == "0")
+                {
+                    presenter.InputErrorMessage();
+                }
+                else { student.bornDate = temp; managerBool = false; }
+            }
+            return student;
+        }
+        public Student ModifyID(Presenter presenter, Student student, Reader reader, char option)
+        {
+            bool managerBool = true;
+            while (managerBool)
+            {
+                presenter.updateMenu("DNI", student.id.ToString(), student);
+                string temp = reader.ReadNewValue(option);
+                if (temp == "0")
+                {
+                    presenter.InputErrorMessage();
+                }
+                else { student.id = int.Parse(temp); managerBool = false;  }
+            }
+            return student;
+        }
+
+        public void ListOfContacts()
+        {
+            Presenter presenter = new Presenter();
+            Repository<Student> repository = new Repository<Student>();
+            presenter.ListOfContactsMenu(repository.FindListOfStudents());
+            Start();
+        }
     }
 }

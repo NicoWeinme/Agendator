@@ -1,12 +1,17 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
 
 namespace TP4_Dev.Classes
 {
+    /// <summary>
+    /// EN LA PRESENTE CLASE "Reader" REALIZAMOS TODAS LAS LECTUAS DE INGRESO POR TECLADO Y SE ENVÍAN A VALIDACIÓN.
+    /// </summary>
     public class Reader
     {
         Validator validator = new Validator();
@@ -19,8 +24,20 @@ namespace TP4_Dev.Classes
             {
                 return int.Parse(option.ToString());
             }
-            else { return 0; }
+            else {  return 0;  }
             
+        }
+        public char ReadOptionForUpdate()
+        {
+            Validator validator = new Validator();
+            char option = '0';
+            option = Console.ReadKey().KeyChar;
+            if (validator.ValidateOptionsForUpdate(option))
+            {
+                return option;
+            }
+            else { return '0'; }
+
         }
         public int ReadDNI()
         {
@@ -35,10 +52,8 @@ namespace TP4_Dev.Classes
 
             for (int t = 0; t < Console.BufferHeight; t++)
             {
-
                 if (t == 13)
                 {
-
                     cursorLeft = ((Console.BufferWidth - menu[t].Length) / 2) + 14;
                     cursorTop = (Console.BufferHeight / 4) + t;
                     Console.SetCursorPosition(cursorLeft, cursorTop);
@@ -49,7 +64,6 @@ namespace TP4_Dev.Classes
                         return int.Parse(DNI);
                     }
                 }
-
             } return 0;
         }
         public string ReadName()
@@ -390,7 +404,6 @@ namespace TP4_Dev.Classes
             }
             return "0";
         }
-
         public int ReadAge(string born)
         {
             DateTime currentDate = DateTime.Now;
@@ -412,6 +425,38 @@ namespace TP4_Dev.Classes
                 return option;
             }
             return '0';
+        }
+        public string ReadNewValue(char attribute)
+        {
+            switch (attribute)
+            {
+                case 'j': return(ReadFacebook());
+                case 'a': return(ReadName());
+                case 'f': return(ReadLastName());
+                case 'b': return(ReadMail());
+                case 'g': return(ReadCountry());
+                case 'c': return(ReadPhone().ToString());
+                case 'h': return(ReadCity());
+                case 'd': return(ReadBornDate());
+                case 'i': return(ReadStreet());
+                case 'e': return(ReadTwitter());
+                case 'k': return(ReadInstagram());
+                case 'J': return(ReadFacebook());   
+                case 'A': return(ReadName());
+                case 'F': return(ReadLastName());
+                case 'B': return(ReadMail());
+                case 'G': return(ReadCountry());
+                case 'C': return(ReadPhone().ToString());       
+                case 'H': return(ReadCity());
+                case 'D': return(ReadBornDate());
+                case 'I': return(ReadStreet());
+                case 'E': return(ReadTwitter());
+                case 'K': return(ReadInstagram());
+                case 'l': return(ReadDNI().ToString());
+                default:
+                    return "0";
+            }
+
         }
         
     }

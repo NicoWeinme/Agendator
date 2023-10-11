@@ -7,6 +7,9 @@ using TP4_Dev.Interfaces;
 
 namespace TP4_Dev.Classes
 {
+    /// <summary>
+    /// EN LA PRESENTE CLASE "Student" ESTÁN LAS PROPIEDADES DEL OBJETO "Student".
+    /// </summary>
     /*
     Creamos la clase Alumno con sus correspondientes propiedades
     */

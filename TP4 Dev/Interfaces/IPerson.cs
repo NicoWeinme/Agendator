@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace TP4_Dev.Interfaces
 {
+    /// <summary>
+    /// EN LA PRESENTE INTERFAZ "IPerson" ESTÁN TODAS LAS PROPIEDADES HEREDABLES PARA CUALQUIER OBJETO QUE TAMBIÉN SEA PERSONA.
+    /// </summary>
+   
     /*
     Creamos la interface Persona con sus correspondientes propiedades
     */
